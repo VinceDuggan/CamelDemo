@@ -1,0 +1,35 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+
+	implementation 'org.apache.camel:camel-core:3.19.0'
+	implementation 'org.apache.camel:camel-kafka:3.19.0'
+	implementation 'org.apache.camel:camel-jackson:3.19.0'
+	implementation 'org.apache.camel:camel-rest:3.19.0'
+	implementation 'org.apache.camel:camel-servlet:3.19.0'
+	implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.19.0'
+	implementation 'org.apache.camel.springboot:camel-servlet-starter:3.19.0'
+	implementation 'org.apache.camel.springboot:camel-spring-redis-starter:3.19.0'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+			testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
