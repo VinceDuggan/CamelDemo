@@ -6,6 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.Exchange;
 import org.apache.camel.Predicate;
 
+/**
+ * Arbitrary rule to demo how filters work
+ * Low accounts will simply be ignored
+ */
 public class HighAccount implements Predicate {
         public boolean matches(Exchange exchange) {
             ObjectMapper mapper = new ObjectMapper();

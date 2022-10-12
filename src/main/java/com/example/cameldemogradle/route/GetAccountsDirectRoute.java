@@ -6,7 +6,9 @@ import com.example.cameldemogradle.process.SetKeyHeaderFromURL;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-
+/**
+ * Route that receives an accountno from GET URL, and fetches the account from Redis
+ */
 @Component
 public class GetAccountsDirectRoute extends RouteBuilder {
 

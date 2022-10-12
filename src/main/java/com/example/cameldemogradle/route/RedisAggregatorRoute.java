@@ -5,7 +5,7 @@ import com.example.cameldemogradle.process.SetRedisHeaders;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class RedisAggregatorRoute extends RouteBuilder {
 
 

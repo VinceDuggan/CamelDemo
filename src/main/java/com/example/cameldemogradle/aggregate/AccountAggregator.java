@@ -8,6 +8,11 @@ import org.apache.camel.Exchange;
 
 import java.util.HashMap;
 
+/**
+ * Demo aggregation of account invoices.
+ */
+
+@Deprecated
 public class AccountAggregator  implements AggregationStrategy {
     @Override
     public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
@@ -16,6 +21,7 @@ public class AccountAggregator  implements AggregationStrategy {
         AccountPayload payloadFromList;
         ObjectMapper mapper = new ObjectMapper();
         try {
+            //newly received invoice from Kafka
             payload = mapper.readValue(newExchange.getIn().getBody().toString(), AccountPayload.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
@@ -23,6 +29,7 @@ public class AccountAggregator  implements AggregationStrategy {
         }
 
 
+        //If first time, add it to the list
         if (oldExchange == null || oldExchange.getIn().getBody( ) == null) {
             list = new HashMap<>();
             list.put(payload.getAccountNo(), payload);
@@ -30,6 +37,7 @@ public class AccountAggregator  implements AggregationStrategy {
             return newExchange;
         }
 
+        //retrieve the current list
         list  = (HashMap<Integer, AccountPayload>)oldExchange.getIn().getBody();
         payloadFromList = list.get(payload.getAccountNo());
         if (payloadFromList == null) {

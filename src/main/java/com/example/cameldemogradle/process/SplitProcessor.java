@@ -4,6 +4,7 @@ import com.example.cameldemogradle.AccountPayload;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 
+@Deprecated
 public class SplitProcessor implements Processor {
 
 

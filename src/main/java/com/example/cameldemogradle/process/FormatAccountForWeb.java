@@ -4,6 +4,9 @@ import com.example.cameldemogradle.AccountPayload;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.Exchange;
 
+/**
+ * Simple text version of an AccountPayload
+ */
 public class FormatAccountForWeb implements org.apache.camel.Processor {
     @Override
     public void process(Exchange exchange) throws Exception {

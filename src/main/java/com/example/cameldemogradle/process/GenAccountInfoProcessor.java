@@ -6,6 +6,9 @@ import org.apache.camel.Processor;
 
 import java.util.Random;
 
+/**
+ * Generate a new account invoice - test data
+ */
 public class GenAccountInfoProcessor implements Processor {
 
     private Random r = new Random(1000);

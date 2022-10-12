@@ -8,6 +8,7 @@ import org.apache.camel.Processor;
 
 import java.util.HashMap;
 
+@Deprecated
 public class FormatAggregationProcessor implements Processor {
 
     ObjectMapper mapper = new ObjectMapper();

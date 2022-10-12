@@ -7,7 +7,11 @@ import org.apache.camel.Processor;
 
 public class SetRedisHeaders implements Processor {
 
-
+    /**
+     * Set the Redis Key value for lookup from the JSON AccountPayload
+     * @param exchange
+     * @throws Exception
+     */
     public void process(Exchange exchange) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
 

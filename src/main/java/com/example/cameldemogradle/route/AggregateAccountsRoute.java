@@ -6,6 +6,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
 //@Component
+@Deprecated
 public class AggregateAccountsRoute extends RouteBuilder {
 
 

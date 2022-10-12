@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 
+/**
+ * Set Redis Key from account
+ */
 public class SetRedisHeadersFromAccountPayload implements Processor {
 
 

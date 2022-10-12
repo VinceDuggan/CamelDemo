@@ -1,5 +1,8 @@
 package com.example.cameldemogradle;
 
+/**
+ * Simple POJO representing an account
+ */
 public class AccountPayload {
     private int accountNo;
     private String accountName;
