@@ -23,9 +23,13 @@ public class RESTAccountRoute extends RouteBuilder {
 
                 .to("direct:getAccounts");
 
-        rest("/api/control/stop")
+        rest("/api/control")
                 .produces("text/plain")
-                .get()
-                .to ("direct:control");
+                .get("/stop")
+                .to ("direct:controlstop")
+
+                .get("/start")
+                .to ("direct:controlstart");
+
     }
 }

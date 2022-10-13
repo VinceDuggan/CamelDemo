@@ -10,12 +10,18 @@ import java.util.concurrent.TimeUnit;
 public class ControlDirectRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
-         from("direct:control")
+         from("direct:controlstop")
                  .process( e -> {
                      CamelContext context = e.getContext();
                      context.getRouteController().stopRoute("GenTestDataRoute", 2, TimeUnit.SECONDS);
-                     context.stop();
+        //            context.stop();
                  });
+
+        from("direct:controlstart")
+                .process( e -> {
+                    CamelContext context = e.getContext();
+                    context.getRouteController().startRoute("GenTestDataRoute");
+                });
 
     }
 }
