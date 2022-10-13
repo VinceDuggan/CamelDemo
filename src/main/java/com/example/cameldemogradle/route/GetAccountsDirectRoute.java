@@ -17,9 +17,9 @@ public class GetAccountsDirectRoute extends RouteBuilder {
 
         from("direct:getAccounts")
                 .process(new SetKeyHeaderFromURL())
-                .enrich("spring-redis://{{account.redis.host}}?command=GET")
-                .aggregate(constant("always"), new AggregationStrategyWeb()).completionSize(1)
-                .process(new FormatAccountForWeb())
+                .enrich("spring-redis://{{account.redis.host}}?command=GET",new AggregationStrategyWeb())
+                //.aggregate(constant("always"), new AggregationStrategyWeb()).completionSize(1)
+                //.process(new FormatAccountForWeb())
         ;
     }
 }

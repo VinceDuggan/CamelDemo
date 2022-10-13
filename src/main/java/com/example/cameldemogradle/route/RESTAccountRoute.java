@@ -4,7 +4,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RESTRoute extends RouteBuilder {
+public class RESTAccountRoute extends RouteBuilder {
     /**
      * Simple GET endpoint to query an account
      *
@@ -22,5 +22,10 @@ public class RESTRoute extends RouteBuilder {
                 .get()
 
                 .to("direct:getAccounts");
+
+        rest("/api/control/stop")
+                .produces("text/plain")
+                .get()
+                .to ("direct:control");
     }
 }

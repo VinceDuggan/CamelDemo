@@ -15,6 +15,7 @@ class GenTestDataRoute extends RouteBuilder {
 
         from("timer:getData?delay=5000&period=100")
                 .routeId("GenTestDataRoute")
+                .id("GenTestDataRoute")
                 .process(new GenAccountInfoProcessor())
                 .marshal().json(AccountPayload.class)
                 .setHeader("kafka.KEY", constant("TestData"))

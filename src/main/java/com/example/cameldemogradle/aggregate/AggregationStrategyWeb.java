@@ -1,5 +1,8 @@
 package com.example.cameldemogradle.aggregate;
 
+import com.example.cameldemogradle.AccountPayload;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.camel.AggregationStrategy;
 import org.apache.camel.Exchange;
 /**
@@ -8,11 +11,25 @@ import org.apache.camel.Exchange;
 public class AggregationStrategyWeb implements AggregationStrategy {
 
     public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
-        if (oldExchange == null) {
-            return newExchange;
+        if (newExchange == null) {
+            return oldExchange;
         }
 
-        newExchange.getIn().setHeader("CamelRedis.Value", oldExchange.getIn().getHeader("CamelRedis.Value"));
+        ObjectMapper mapper = new ObjectMapper();
+
+        AccountPayload payload = null;
+        try {
+            payload = mapper.readValue( newExchange.getIn().getBody().toString(), AccountPayload.class);
+        } catch (JsonProcessingException e) {
+            payload = null;
+        }
+        if (payload == null) {
+
+        } else {
+            newExchange.getIn().setBody("Account Details : \n" + payload.toString());
+
+        }
+
         return newExchange;
     }
 

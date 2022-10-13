@@ -44,8 +44,8 @@ public class AccountPayload {
 
     @Override
     public String toString() {
-        return  "accountNo=" + accountNo +
-                ", accountName='" + accountName +
-                ", amount=" + amount ;
+        return  "Account No   :" + accountNo +
+                "\nAccount Name :" + accountName +
+                "\nAmount       :" + amount ;
     }
 }
